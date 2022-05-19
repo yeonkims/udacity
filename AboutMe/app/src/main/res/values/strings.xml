@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AboutMe</string>
+    <string name="name">Jiyeon</string>
+    <string name="yellow_star">Yellow star</string>
+
+    <string name="bio">Hi, my name is Jiyeon.
+        \n\nLorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
+        \n\nLorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,
+        \n\ncuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una
+        \n\ngalería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.
+        \n\nNo sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos,
+        \n\nquedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset",
+        \n\nlas cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición,
+        \n\ncomo por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</string>
+    <string name="what_is_your_nickname">What is your Nickname?</string>
+    <string name="done">Done</string>
+</resources>
