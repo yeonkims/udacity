@@ -16,10 +16,14 @@ class MainActivity : AppCompatActivity() {
     // This binding object is like a layer of glue between layout, its views and data.
     private lateinit var binding: ActivityMainBinding
 
+    private val myNameData: MyName = MyName("Kim Jiyeon")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        
+        binding.myNameLayout = myNameData
 
         // We can now access the doneButton through to binding object.
         binding.doneButton.setOnClickListener {
@@ -31,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     private fun addNickname(view: View) {
 
         binding.apply {
-            nicknameText.text = nicknameEdit.text
+            myNameData?.nickname = nicknameEdit.text.toString()
             invalidateAll()
             nicknameEdit.visibility = View.GONE
             doneButton.visibility = View.GONE
