@@ -31,14 +31,12 @@ class GameViewModel : ViewModel() {
     private lateinit var wordList: MutableList<String>
 
     init {
-        Log.i("GameViewModel", "GameViewModel created!")
         resetList()
         nextWord()
     }
 
     override fun onCleared() {
         super.onCleared()
-        Log.i("GameViewModel", "GameViewModel destroyed!")
     }
 
     /**
