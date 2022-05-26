@@ -56,13 +56,8 @@ class GameFragment : Fragment() {
 
         binding.gameViewModel = viewModel
 
-        viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
-            binding.scoreText.text = newScore.toString()
-        })
-
-        viewModel.word.observe(viewLifecycleOwner, Observer { newWord ->
-            binding.wordText.text = newWord
-        })
+        // LiveData를 DataBinding 할 수 있게 해주는 라인
+        binding.lifecycleOwner = this
 
         viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer { hasFinished ->
             if(hasFinished) {
@@ -73,7 +68,6 @@ class GameFragment : Fragment() {
 
         viewModel.currentTime.observe(viewLifecycleOwner, Observer { newTime ->
             binding.timerText.text = DateUtils.formatElapsedTime(newTime)
-
         })
 
         return binding.root
