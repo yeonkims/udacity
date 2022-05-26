@@ -90,10 +90,9 @@ class GameFragment : Fragment() {
      * Called when the game is finished
      */
     private fun gameFinished() {
-//        val currentScore = viewModel.score.value ?: 0
-//        val action = GameFragmentDirections.actionGameToScore(currentScore)
-//        findNavController(this).navigate(action)
-         Toast.makeText(this.activity, "Game has finished", Toast.LENGTH_LONG).show()
+        val currentScore = viewModel.score.value ?: 0
+        val action = GameFragmentDirections.actionGameToScore(currentScore)
+        findNavController(this).navigate(action)
     }
 
 }
