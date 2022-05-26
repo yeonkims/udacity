@@ -60,10 +60,10 @@ class GameViewModel : ViewModel() {
 
     init {
         _eventGameFinish.value = false
-        resetList()
-        nextWord()
         _score.value = 0
         _word.value = ""
+        resetList()
+        nextWord()
 
         // Creates a timer which triggers the end of the game when it finishes
         timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND) {
