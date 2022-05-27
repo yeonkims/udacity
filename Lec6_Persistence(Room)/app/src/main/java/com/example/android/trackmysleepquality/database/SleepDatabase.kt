@@ -15,3 +15,41 @@
  */
 
 package com.example.android.trackmysleepquality.database
+
+import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+
+@Database(entities = [SleepNight::class], version = 1, exportSchema = false)
+abstract class SleepDatabase : RoomDatabase() {
+
+    abstract val sleepDatabaseDao: SleepDatabaseDao
+
+    /** 클래스를 인스턴스화 하지 않고 데이터베이스를 생성 및 가져오는 메소드에 접근할 수 있다. */
+    companion object {
+
+        @Volatile
+        private var INSTANCE: SleepDatabase?= null
+
+        fun getInstance(context: Context) : SleepDatabase {
+            synchronized(this) {
+                var instance = INSTANCE
+
+                if (instance == null) {
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        SleepDatabase::class.java,
+                        "sleep_history_database"
+                    )
+                        .fallbackToDestructiveMigration()
+                        .build()
+                    INSTANCE = instance
+                }
+
+                return instance
+            }
+        }
+
+    }
+}
