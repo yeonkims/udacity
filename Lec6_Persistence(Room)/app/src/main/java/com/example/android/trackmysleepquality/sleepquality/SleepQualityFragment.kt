@@ -31,7 +31,7 @@ import com.example.android.trackmysleepquality.databinding.FragmentSleepQualityB
  * Once the user taps an icon, the quality is set in the current sleepNight
  * and the database is updated.
  */
-class SleepQualityFragment : Fragment() {
+class  SleepQualityFragment : Fragment() {
 
     /**
      * Called when the Fragment is ready to display content to the screen.
