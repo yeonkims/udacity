@@ -64,14 +64,26 @@ class SleepTrackerViewModel(val database: SleepDatabaseDao, application: Applica
         it?.isNotEmpty()
     }
 
-    fun doneNavigating() {
-        _navigateToSleepQuality.value = null
+    /** 스낵바 표시는 UI 작업으로 프레그먼트에서 발생하나, 표시를 결정하는 것은 뷰 모델이다.
+     * 따라서 Navigation Trigger와 동일한 기술을 수행한다. */
+    private var _showSnackbarEvent = MutableLiveData<Boolean>()
+
+    val showSnackbarEvent: LiveData<Boolean>
+        get() = _showSnackbarEvent
+
+    fun doneShowingSnackbar() {
+        _showSnackbarEvent.value = false
     }
+
 
     private val _navigateToSleepQuality = MutableLiveData<SleepNight>()
 
     val navigateToSleepQuality: LiveData<SleepNight>
         get() = _navigateToSleepQuality
+
+    fun doneNavigating() {
+        _navigateToSleepQuality.value = null
+    }
 
     init {
         initializeTonight()
@@ -128,6 +140,8 @@ class SleepTrackerViewModel(val database: SleepDatabaseDao, application: Applica
         uiScope.launch {
             clear()
             tonight.value = null
+
+            _showSnackbarEvent.value = true
         }
     }
 
