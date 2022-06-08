@@ -10,14 +10,14 @@ import com.example.android.trackmysleepquality.database.SleepNight
 
 // 확장함수
 @BindingAdapter("sleepDurationFormatted")
-fun TextView.setSleepDurationFormatted(item: SleepNight) {
+fun TextView.setSleepDurationFormatted(item: SleepNight?) {
     item?.let {
         text = convertDurationToFormatted(item.startTimeMilli, item.endTimeMilli, context.resources)
     }
 }
 
 @BindingAdapter("sleepQualityFormatted")
-fun TextView.setSleepQualityFormatted(item: SleepNight) {
+fun TextView.setSleepQualityFormatted(item: SleepNight?) {
     item?.let {
         text = convertNumericQualityToString(item.sleepQuality, context.resources)
     }
